@@ -1,6 +1,6 @@
-FROM alpine:3.20
+FROM ubuntu:24.04
 
-RUN apk add --no-cache 3proxy
+RUN apt-get update && apt-get install -y 3proxy && rm -rf /var/lib/apt/lists/*
 
 COPY 3proxy.cfg /etc/3proxy/3proxy.cfg
 COPY start.sh /start.sh
